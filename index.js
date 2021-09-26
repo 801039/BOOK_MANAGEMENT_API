@@ -1,5 +1,10 @@
+require ("dotenv").config();
+
 const { response } = require("express");
 const express = require("express");
+
+//Mongoose
+const mongoose = require("mongoose");
 
 //Database
 const database = require("./database");
@@ -9,6 +14,11 @@ const booky =  express();
 
 //Configuration
 booky.use(express.json());
+
+//Establish database connection
+mongoose
+.connect(process.env.MONGO_URL)
+.then(()=> console.log("connection established !!!!😏"));
 
 
 /*
