@@ -8,6 +8,6 @@ const PublicationSchema = mongoose.Schema({
 });
 
 //Create a author model
-const PublicationModel = mongoose.model(PublicationSchema);
+const PublicationModel = mongoose.model("publications",PublicationSchema);
 
 modules.exports = PublicationModel;
