@@ -10,9 +10,9 @@ const mongoose = require("mongoose");
 const database = require("./database");
 
 //Models 
-const BookModels = require("./database/book");
-const AuthorModels = require("./database/author");
-const PublicationModels = require("./database/publication");
+const BookModel = require("./database/book");
+const AuthorModel = require("./database/author");
+const PublicationModel = require("./database/publication");
 
 //initialaization
 const booky =  express();
@@ -34,7 +34,8 @@ mongoose
     methods     GET
 */
 booky.get("/", (req,res) => {
-    return res.json({books: database.books})
+    const getAllBooks = BookModel.find();
+    return res.json({books: getAllBooks})
 });
 
 
@@ -498,3 +499,6 @@ booky.delete("/publication/delete/book/:isbn/:pubId", (req,res) => {
 
 
 booky.listen(3000,()=>console.log("Hey SERVER is running 😎🚀")); 
+
+
+//34.30
